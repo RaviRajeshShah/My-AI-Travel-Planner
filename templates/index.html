@@ -1,0 +1,365 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>My Personalized AI for Trip Planner</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h2>My Personalized AI for Trip Planner</h2>-->
+<!--    <br><br>-->
+<!--    <form action="" method="post">-->
+<!--        <label for="">Enter your name:</label>-->
+<!--        <br>-->
+<!--        <input type="text" name="name">-->
+<!--        <br><br>-->
+<!--        <label for="">Enter your age:</label>-->
+<!--        <br>-->
+<!--        <input type="number" name="age">-->
+<!--        <br><br>-->
+<!--        <label for="">Enter your destination:</label>-->
+<!--        <br>-->
+<!--        <input type="text" name="des">-->
+<!--        <br><br>-->
+<!--        <label for="">Enter your budget:</label>-->
+<!--        <br>-->
+<!--        <input type="number" name="budget">-->
+<!--        <br><br>-->
+<!--        <label for="">Enter number of days to stay:</label>-->
+<!--        <br>-->
+<!--        <input type="number" name="days">-->
+<!--        <br><br>-->
+<!--        <label for="">Number Of people:</label>-->
+<!--        <br>-->
+<!--        <input type="number" name="num_of_people">-->
+<!--        <br><br>-->
+<!--        <label for="">Select Hotel Type:</label>-->
+<!--        <select name="hotel" id="">-->
+<!--            <option value="no choice">no choice</option>-->
+<!--            <option value="budget friendly hotel">Budget Friendly hotel</option>-->
+<!--            <option value="three star hotel">three star hotel</option>-->
+<!--            <option value="five star hotel">five star hotel</option>-->
+<!--            -->
+<!--        </select>-->
+<!--        <br><br>-->
+<!--        <label for="">select transport facility:</label>-->
+<!--        <select name="transport" id="">-->
+<!--            <option value="Bus">Bus</option>-->
+<!--            <option value="Train">Train</option>-->
+<!--            <option value="Flight">Flight</option>-->
+<!--        </select>-->
+<!--        <br><br>-->
+<!--        <label for="">select food type:</label>-->
+<!--        <select name="food" id="">-->
+<!--            <option value="veg">veg</option>-->
+<!--            <option value="non-veg">Non-veg</option>-->
+<!--            -->
+<!--        </select>-->
+<!--        <br><br>-->
+<!--        <label for="">select climate/weather:</label>-->
+<!--        <select name="climate" id="">-->
+<!--            <option value="Mansoon">Mansoon</option>-->
+<!--            <option value="summer">Summer</option>-->
+<!--            <option value="Winter">Winter</option>-->
+<!--        </select>-->
+<!--        <br><br>-->
+<!--        <input type="submit">-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personalized AI for Trip Planner</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            overflow-x: hidden;
+
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e3a8a,
+                #0f766e
+            );
+
+            background-size: 300% 300%;
+            animation: gradientMove 12s ease infinite;
+        }
+
+        @keyframes gradientMove{
+            0%{
+                background-position: 0% 50%;
+            }
+            50%{
+                background-position: 100% 50%;
+            }
+            100%{
+                background-position: 0% 50%;
+            }
+        }
+
+        .container{
+            width: 100%;
+            max-width: 650px;
+
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-radius: 25px;
+            padding: 40px;
+
+            box-shadow:
+            0 8px 32px rgba(0,0,0,0.35);
+
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        label{
+            color: #ffffff;
+            font-size: 15px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input,
+        select{
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.25);
+
+            background: rgba(255,255,255,0.10);
+            color: white;
+            font-size: 15px;
+
+            outline: none;
+
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder{
+            color: rgba(255,255,255,0.7);
+        }
+
+        select option{
+            color: black;
+        }
+
+        input:focus,
+        select:focus{
+            transform: scale(1.02);
+            border-color: #7dd3fc;
+
+            box-shadow:
+            0 0 15px rgba(125,211,252,0.6);
+
+            background: rgba(255,255,255,0.18);
+        }
+
+        input:hover,
+        select:hover{
+            transform: translateY(-2px);
+        }
+
+        .submit-btn{
+            margin-top: 10px;
+            background: linear-gradient(
+                135deg,
+                #38bdf8,
+                #06b6d4
+            );
+
+            border: none;
+            color: white;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            padding: 15px;
+            border-radius: 14px;
+
+            transition: all 0.4s ease;
+        }
+
+        .submit-btn:hover{
+            transform: translateY(-3px) scale(1.02);
+
+            box-shadow:
+            0 10px 25px rgba(6,182,212,0.5);
+        }
+
+        .submit-btn:active{
+            transform: scale(0.98);
+        }
+
+        .travel-icon{
+            text-align: center;
+            font-size: 55px;
+            margin-bottom: 15px;
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float{
+            0%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-10px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+
+        @media(max-width: 768px){
+
+            .container{
+                padding: 25px;
+            }
+
+            h2{
+                font-size: 24px;
+            }
+
+            input,
+            select{
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="travel-icon">✈️</div>
+
+        <h2>My Personalized AI Trip Planner</h2>
+
+        <form action="" method="post">
+
+            <div>
+                <label>Enter your name:</label>
+                <input type="text" name="name" placeholder="Enter your name">
+            </div>
+
+            <div>
+                <label>Enter your age:</label>
+                <input type="number" name="age" placeholder="Enter your age">
+            </div>
+
+            <div>
+                <label>Enter your destination:</label>
+                <input type="text" name="des" placeholder="Where do you want to travel?">
+            </div>
+
+            <div>
+                <label>Enter your budget:</label>
+                <input type="number" name="budget" placeholder="Enter your budget">
+            </div>
+
+            <div>
+                <label>Enter number of days to stay:</label>
+                <input type="number" name="days" placeholder="Number of days">
+            </div>
+
+            <div>
+                <label>Number Of people:</label>
+                <input type="number" name="num_of_people" placeholder="Enter number of people">
+            </div>
+
+            <div>
+                <label>Select Hotel Type:</label>
+
+                <select name="hotel">
+                    <option value="no choice">No Choice</option>
+                    <option value="budget friendly hotel">Budget Friendly Hotel</option>
+                    <option value="three star hotel">Three Star Hotel</option>
+                    <option value="five star hotel">Five Star Hotel</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Select transport facility:</label>
+
+                <select name="transport">
+                    <option value="Bus">Bus</option>
+                    <option value="Train">Train</option>
+                    <option value="Flight">Flight</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Select food type:</label>
+
+                <select name="food">
+                    <option value="veg">Veg</option>
+                    <option value="non-veg">Non-Veg</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Select climate/weather:</label>
+
+                <select name="climate">
+                    <option value="Mansoon">Monsoon</option>
+                    <option value="summer">Summer</option>
+                    <option value="Winter">Winter</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Generate Travel Plan" class="submit-btn">
+
+        </form>
+
+    </div>
+
+</body>
+</html>
