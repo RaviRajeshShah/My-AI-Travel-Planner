@@ -1,8 +1,6 @@
 from flask import Flask , render_template , request
 from google import genai
 
-
-
 from dotenv import load_dotenv
 import os
 
@@ -14,9 +12,6 @@ gemini_api_key = os.getenv('gemini_api_key')
 client = genai.Client(api_key=gemini_api_key)
 
 app=Flask(__name__)
-
-
-
 
 
 @app.route("/",methods=['GET','POST'])
@@ -52,6 +47,3 @@ def index():
         return render_template('result.html',result=response.text)
 
 app.run(debug=True)
-
-
-
